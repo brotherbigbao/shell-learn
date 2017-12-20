@@ -60,8 +60,9 @@
 #awk '{ names = names $1 " " } END {print names}' emp.data
 
 #打印最后一行数据
-awk 'END {print $0}' emp.data
-awk '{ last = $0 } END { print last }' emp.data
+#awk 'END {print $0}' emp.data
+#awk '{ last = $0 } END { print last }' emp.data
 
 #Built-in function
-awk '{ print $1, length($1) }' emp.data
+#awk '{ print $1, length($1) }' emp.data
+awk '{ nc = nc + length($0) + 1; nw = nw + NF } END { print NR, "lines,", nw, "words,", nc, "characters" }' emp.data
